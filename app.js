@@ -57,3 +57,14 @@ function calcular(display){
     }
 
 }
+
+
+function actualizar(display, button){
+    if (display.value ===0) {
+        display.value = ''
+    }
+
+    display.value += button.value;
+    
+}
+

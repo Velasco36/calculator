@@ -68,3 +68,6 @@ function actualizar(display, button){
     
 }
 
+function borrar(display){
+    display.value = ''
+}

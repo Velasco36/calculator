@@ -9,15 +9,16 @@ window.addEventListener('load', () => {
 
     //convertir el htmlcollection a arraay
     const keypadButtonsArray = Array.from(buttons);
+    
 
     //Iteramos en los botones
     keypadButtonsArray.forEach(( button) =>{
         //a cada boton le agragamos un listener 
         button.addEventListener('click', ()=> {
 
-        //console.log(display.value, "display")
-        //console.log(button.value, "boton" )
-        //console.log(button, "todo del boton")
+        console.log(display.value, "display")
+        console.log(button.value, "boton" )
+        console.log(button, "todo del boton")
         calculadora(button, display)
           
           

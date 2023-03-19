@@ -30,47 +30,77 @@ function printNumber(e) {
 
   
   const screen = document.getElementById('screen');
+  const Enter = document.createElement('Enter');
   const code = e.charCode
-  //const enter = e.key
+  var value = screen.value;
+  if (code === 127){
+    screen.value = value.substring(0, value.length -1)
+    console.log( screen.value)
+
+    console.log('eliminando')
+  }
+  
   
   //validar que solo se puedan colocar numero
-  if (code >=42 && code <=58 || code ==127 || code ==13)  {
+  if (code >=42 && code <=58 || code ==127 || code ==13 || code ==32)  {
+    
     screen.value += ` ${e.key}`;
 
+    console.log( screen.value)
 
-    if (code == 13){
-
-      //console.log(enter)
-
-      //`${e-key}` = 'enter '
-
-
-      console.log( screen + `desde e.key`)
-
-
+    if (code == 32){
+      console.log(e.key)
+      calcular(screen)
       
-
-//      screen.value += ` ${e.key}`;
+      console.log( screen.value)
 
     }
 
-  }
-
-  //screen.value += ` ${e.key}`;
-  //console.log(e);
 
 
-  console.log(e.charCode)
+    if (code == 13){
+      console.log(e.key)
+      calcular(screen)
+      e.preventDefault()
+      
+      console.log( screen.value)
 
+    }
+/*
 
-
-}
-
-
-
-
+/*
 
   
+
+    if (code == 13){
+      Enter.onclick = () => {
+        calcular(screen)
+      
+      }      
+      console.log(e)
+      if (e.key =='Enter'){
+        e.key == ''
+      }
+      
+      console.log(e)
+      
+      
+      calcular(screen)
+      
+      console.log( screen.value)
+//      screen.value += ` ${e.key}`;
+
+*/
+  
+
+    if (code ==127){
+      screen.value = value.substring(0, value.length -1)
+    }
+  }
+  //screen.value += ` ${e.key}`;
+  //console.log(e);
+  console.log(e.charCode)
+}  
 
 
 function calculadora(button, display) {

@@ -30,9 +30,12 @@ function printNumber(e) {
 
   
   const screen = document.getElementById('screen');
-  const Enter = document.createElement('Enter');
   const code = e.charCode
   var value = screen.value;
+
+  if (e.key === 'Backspace'){
+    console.log('borrar')
+  }
   if (code === 127){
     screen.value = value.substring(0, value.length -1)
     console.log( screen.value)
@@ -48,6 +51,11 @@ function printNumber(e) {
     
     if (code == 13){
       console.log(e.key)
+      if (e.value == undefined){
+        console.log('no hay nada')
+        
+        return
+      }
       calcular(screen)
       
       
@@ -72,32 +80,6 @@ function printNumber(e) {
 
 
 
-/*
-
-/*
-
-  
-
-    if (code == 13){
-      Enter.onclick = () => {
-        calcular(screen)
-      
-      }      
-      console.log(e)
-      if (e.key =='Enter'){
-        e.key == ''
-      }
-      
-      console.log(e)
-      
-      
-      calcular(screen)
-      
-      console.log( screen.value)
-//      screen.value += ` ${e.key}`;
-
-*/
-  
 
     if (code ==98){
       screen.value = value.substring(0, value.length -1)

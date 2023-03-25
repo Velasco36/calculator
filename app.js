@@ -27,8 +27,6 @@ window.addEventListener('load', () => {
 window.addEventListener('keypress', printNumber);
 function printNumber(e) {
 
-
-  
   const screen = document.getElementById('screen');
   const code = e.charCode
   var value = screen.value;
@@ -36,83 +34,28 @@ function printNumber(e) {
   if (e.key === 'Backspace'){
     console.log('borrar')
   }
+  // || code ==127 || code ==13 || code ==32 || code ==98
   if (code === 127){
     screen.value = value.substring(0, value.length -1)
-    console.log( screen.value)
-
-    console.log('eliminando')
   }
 
-  
+  if (code == 13 && screen.value !== ''){
+    return calcular(screen) 
+  }
+
+  if (code === 32){
+    return calcular(screen);
+  }
+
+  if (code ==98){
+    screen.value = value.substring(0, value.length -1)
+  }
+
   //validar que solo se puedan colocar numero
-  if (code >=42 && code <=58 || code ==127 || code ==13 || code ==32 || code ==98)  {
-
- 
-  
-    //console.log(screen.value + 'screen')
-
-    let res= calcular(screen)
-    console.log(res + ' res')
-    if (code == 13 &&  (res !== 'ERROR' || res !== undefined )){
-      screen.value = res 
-      
-      
-      
-     
-
-
-/*
-      
-
-       
-      if(screen.vale ===undefined){
-        screen.value = ' '  
-        return screen
-      }else {
-        calcular(screen)
-      }
-
-      
- */  //calcular(screen)
-      
-      //calcular(screen)
-      
- 
-      console.log('hola2')
-
-    }else{
-      
-      screen.value += e.key
-
-      
-
-    }
-
-    console.log( screen.value)
-
-
-
-
-    if (code == 32){
-      console.log(e.key)
-      calcular(screen)
-      
-      console.log( screen.value)
-
-    }
-
-
-
-
-    if (code ==98){
-      screen.value = value.substring(0, value.length -1)
-    }
+  if (code >=42 && code <=58)  {
+    screen.value += e.key
   }
-  //screen.value += ` ${e.key}`;
-  //console.log(e);
-  console.log(e.charCode)
 }  
-
 
 function calculadora(button, display) {
   switch (button.value) {
@@ -132,9 +75,9 @@ function calculadora(button, display) {
 function calcular(display) { 
 
   try {
-    return eval(display.value);// si solo tienes un operador no evalues nada
+    display.value = eval(display.value);
   } catch (e) {
-    return 'ERROR';
+    display.value = 'ERROR';
   }
 }
 

@@ -42,31 +42,54 @@ function printNumber(e) {
 
     console.log('eliminando')
   }
-  
+
   
   //validar que solo se puedan colocar numero
   if (code >=42 && code <=58 || code ==127 || code ==13 || code ==32 || code ==98)  {
 
+ 
   
-    
-    if (code == 13){
-      console.log(e.key)
-      if (e.value == undefined){
-        console.log('no hay nada')
-        
-        return
+    //console.log(screen.value + 'screen')
+
+    let res= calcular(screen)
+    console.log(res + ' res')
+    if (code == 13 &&  (res !== 'ERROR' || res !== undefined )){
+      screen.value = res 
+      
+      
+      
+     
+
+
+/*
+      
+
+       
+      if(screen.vale ===undefined){
+        screen.value = ' '  
+        return screen
+      }else {
+        calcular(screen)
       }
-      calcular(screen)
+
       
+ */  //calcular(screen)
       
-      console.log( screen.value)
+      //calcular(screen)
+      
+ 
+      console.log('hola2')
 
     }else{
+      
       screen.value += e.key
+
+      
 
     }
 
     console.log( screen.value)
+
 
 
 
@@ -106,15 +129,12 @@ function calculadora(button, display) {
   }
 }
 
-function calcular(display) {
-
-
- 
+function calcular(display) { 
 
   try {
-    display.value = eval(display.value);// si solo tienes un operador no evalues nada
+    return eval(display.value);// si solo tienes un operador no evalues nada
   } catch (e) {
-    display.value = 'ERROR';
+    return 'ERROR';
   }
 }
 

@@ -29,7 +29,7 @@ function printNumber(e) {
 
   const screen = document.getElementById('screen');
   const code = e.charCode
-  var value = screen.value;
+ 
 
   if (e.key === 'Backspace'){
     console.log('borrar')

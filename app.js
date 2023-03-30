@@ -29,6 +29,10 @@ function printNumber(e) {
 
   const screen = document.getElementById('screen');
   const code = e.charCode
+
+  console.log(screen.value)
+  console.log(e.keyCode)
+  console.log(screen)
  
 
   if (e.key === 'Backspace'){
@@ -42,11 +46,11 @@ function printNumber(e) {
   if (code === 13 && screen.value !== ''){
     return calcular(screen) 
   }
-
+  //calcular Enter
   if (code === 32){
     return calcular(screen);
   }
-
+  //Borrar 
   if (code ===98){
     screen.value = value.substring(0, value.length -1)
   }
@@ -55,7 +59,12 @@ function printNumber(e) {
   if (code >=42 && code <=58)  {
     screen.value += e.key
   }
+
+  if (code ===37){
+    screen.value += e.key
+  }
 }  
+ 
 
 function calculadora(button, display) {
   switch (button.value) {
@@ -75,7 +84,7 @@ function calculadora(button, display) {
 function calcular(display) { 
 
   try {
-    display.value = eval(display.value);
+    display.value = parseFloat(eval(display.value));
   } catch (e) {
     display.value = 'ERROR';
   }

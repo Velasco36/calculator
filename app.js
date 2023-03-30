@@ -12,9 +12,7 @@ window.addEventListener('load', () => {
         //a cada boton le agragamos un listener 
         button.addEventListener('click', ()=> {
 
-        //console.log(display.value, "display")
-        //console.log(button.value, "boton" )
-        //console.log(button, "todo del boton")
+       
         calculadora(button, display)
           
           
@@ -52,7 +50,7 @@ function printNumber(e) {
   }
   //Borrar 
   if (code ===98){
-    screen.value = value.substring(0, value.length -1)
+    screen.value = screen.value.substring(0, screen.value.length -1)
   }
 
   //validar que solo se puedan colocar numero
@@ -63,6 +61,7 @@ function printNumber(e) {
   if (code ===37){
     screen.value += e.key
   }
+ 
 }  
  
 
@@ -84,7 +83,9 @@ function calculadora(button, display) {
 function calcular(display) { 
 
   try {
-    display.value = parseFloat(eval(display.value));
+    display.value = eval(display.value);
+    console.log(display.value);  
+  
   } catch (e) {
     display.value = 'ERROR';
   }

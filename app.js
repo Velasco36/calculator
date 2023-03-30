@@ -39,7 +39,7 @@ function printNumber(e) {
     screen.value = value.substring(0, value.length -1)
   }
 
-  if (code == 13 && screen.value !== ''){
+  if (code === 13 && screen.value !== ''){
     return calcular(screen) 
   }
 
@@ -47,7 +47,7 @@ function printNumber(e) {
     return calcular(screen);
   }
 
-  if (code ==98){
+  if (code ===98){
     screen.value = value.substring(0, value.length -1)
   }
 

@@ -1,5 +1,5 @@
 #appbg {
-  height: 420px;
+  height: 520px;
   width: 300px;
   border: 1px solid black;
   border-radius: 5px;
@@ -27,7 +27,7 @@
 
 #appbg input[type='button'],
 input[type='reset'] {
-  width: 22%;
+  
   cursor: pointer;
   margin-top: 5px;
   font-family: 'Roboto', sans-serif;
@@ -36,7 +36,7 @@ input[type='reset'] {
   color: black;
   padding: 18px;
   border: 0;
-  border-radius: 80%;
+  
 }
 
 #appbg .orange {
@@ -49,7 +49,16 @@ input[type='reset'] {
   color: white !important;
 }
 
-
-.cal-button-0 {
+.cal-button {
+  width: 22%;
+  border-radius: 40%;
   
 }
+
+.cal-button-0 {
+  width: 46%;
+  border-radius:29%;
+  
+  
+}
+

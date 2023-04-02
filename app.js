@@ -64,10 +64,14 @@ function printNumber(e) {
  
 }  
  
+//Errores no puedes usar el teclado y los numeros de la calculadora al mism tiempo suma los dos numeros por teclado y deja en el display los numeros que indroduciste  con su teclado
+
+//bug con ac y el teclado nomal 
+
 
 function calculadora(button, display) {
   switch (button.value) {
-    case 'C':
+    case 'AC':
       borrar(display);
       break;
     case '=':
@@ -84,7 +88,7 @@ function calcular(display) {
 
   try {
     display.value = eval(display.value);
-    console.log(display.value);  
+    
   
   } catch (e) {
     display.value = 'ERROR';

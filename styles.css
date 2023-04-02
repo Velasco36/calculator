@@ -51,13 +51,15 @@ input[type='reset'] {
 
 .cal-button {
   width: 22%;
-  border-radius: 40%;
+  border-radius: 100%;
   
 }
 
 .cero {
-  width: 46%;
-  border-radius:29%;
+  width: 134px;
+  border-radius: 135px;
+  grid-column: span 2;
+  border: none;
   
   
 }

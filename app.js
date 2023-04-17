@@ -1,6 +1,7 @@
 window.addEventListener('load', () => {
   //se guarda el elemento que se necesiaa del html
   const display = document.querySelector('.ans');
+  
 
   const buttons = document.getElementsByClassName('cal-button');
 
@@ -11,6 +12,7 @@ window.addEventListener('load', () => {
     keypadButtonsArray.forEach(( button) =>{
         //a cada boton le agragamos un listener 
         button.addEventListener('click', ()=> {
+          console.log(display)
 
        
         calculadora(button, display)
@@ -27,17 +29,20 @@ function printNumber(e) {
 
   const screen = document.getElementById('screen');
   const code = e.charCode
+  const number = e.key
 
-  console.log(screen.value)
-  console.log(e.keyCode)
-  console.log(screen)
+  console.log(number)
+  
+  
+  //console.log(screen)
  
 
-  if (e.key === 'Backspace'){
+  if (number === 'Backspace'){
     console.log('borrar')
   }
   // || code ==127 || code ==13 || code ==32 || code ==98
   if (code === 127){
+    
     screen.value = value.substring(0, value.length -1)
   }
 
@@ -46,7 +51,7 @@ function printNumber(e) {
   }
   //calcular Enter
   if (code === 32){
-    return calcular(screen);
+    return calcular(screen, number);
   }
   //Borrar 
   if (code ===98){
@@ -55,11 +60,11 @@ function printNumber(e) {
 
   //validar que solo se puedan colocar numero
   if (code >=42 && code <=58)  {
-    screen.value += e.key
+    
+    screen.value += number
   }
-
   if (code ===37){
-    screen.value += e.key
+    screen.value += number
   }
  
 }  
@@ -70,9 +75,17 @@ function printNumber(e) {
 
 
 function calculadora(button, display) {
+
+  console.log(button.value)
+  
+
   switch (button.value) {
+  
     case 'AC':
-      borrar(display);
+      //console.log('precionando borrar')
+      //borrar(display);
+
+      borrar(display, button);
       break;
     case '=':
       calcular(display);
@@ -98,12 +111,21 @@ function calcular(display) {
 
 function actualizar(display, button) {
   if (display.value === 0) {
-    display.value = '';
+    display.value = ' ';
   }
 
   display.value += button.value;
 }
 
-function borrar(display) {
-  display.value = '';
+function borrar(display, button) {
+ 
+  
+  
+    display.value = '';
+    //button.value = ''
+    display.value += display.value
+    
+  
+  
+  
 }

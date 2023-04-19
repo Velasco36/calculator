@@ -5,6 +5,7 @@ window.addEventListener('load', () => {
   Array.from(document.getElementsByClassName('cal-button')).forEach(
     (button) => {
       button.addEventListener('click', () => {
+        button.blur();
         switch (button.value) {
           case 'AC':
             screen.value = '';
